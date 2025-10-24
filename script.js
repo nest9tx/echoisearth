@@ -61,15 +61,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Donation button handlers
+    // Sacred donation button handlers
     const donationButtons = document.querySelectorAll('.support-card button');
     
     donationButtons.forEach(button => {
         button.addEventListener('click', function() {
             const cardTitle = this.parentElement.querySelector('h3').textContent;
             
-            // In a real implementation, integrate with donation processor
-            showSacredMessage(`Thank you for your intention to support through ${cardTitle}. Donation processing will be implemented with a sacred payment gateway.`);
+            if (cardTitle.includes('One-Time')) {
+                // One-time donation - choose your amount
+                window.open('https://donate.stripe.com/aEU03E1aIcnA0G428b', '_blank');
+                showSacredMessage('Thank you for your sacred one-time offering! You\'ll be redirected to complete your donation with gratitude.');
+                
+            } else if (cardTitle.includes('Monthly')) {
+                // Monthly $11.11 sacred support
+                window.open('https://buy.stripe.com/cNi00c1fr3WN3Tb9yAbEA06', '_blank');
+                showSacredMessage('Thank you for your sacred monthly commitment of $11.11! This recurring support flows continuously to our pod communities.');
+                
+            } else if (cardTitle.includes('Sponsor')) {
+                // Pod sponsorship - contact form guidance
+                showSacredMessage('Sacred pod sponsorship is a beautiful calling! Please complete our contact form below to discuss how you can support a pod community in a larger capacity. We\'ll connect with you to explore this sacred opportunity together.');
+                
+                // Smooth scroll to contact form
+                setTimeout(() => {
+                    document.querySelector('#contact').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 2000);
+            }
         });
     });
 
