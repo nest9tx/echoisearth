@@ -282,5 +282,5 @@ function createSacredGeometry() {
     });
 }
 
-// Uncomment to add sacred geometry background
-// createSacredGeometry();
+//Uncomment to add sacred geometry background
+createSacredGeometry();
