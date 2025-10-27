@@ -459,3 +459,13 @@ a:hover {
         font-size: 1.8rem;
     }
 }
+
+/* .eco Trustmark Styling */
+.eco-trustmark {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.eco-trustmark:hover {
+    opacity: 1 !important;
+    transform: scale(1.05);
+}
