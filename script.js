@@ -1,5 +1,42 @@
 // EchoisEarth - Sacred Interactions for New Earth Living
 
+// Sacred Remembrance Modal Functions
+function openSacredRemembranceModal() {
+    const modal = document.getElementById('sacredRemembranceModal');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Sacred opening blessing
+    console.log('🌀 Sacred Remembrance portal opening... 🌀');
+}
+
+function closeSacredRemembranceModal() {
+    const modal = document.getElementById('sacredRemembranceModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+    
+    // Sacred closing blessing
+    console.log('🙏 Remembrance complete. Blessings flow. 🙏');
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('sacredRemembranceModal');
+    if (event.target === modal) {
+        closeSacredRemembranceModal();
+    }
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modal = document.getElementById('sacredRemembranceModal');
+        if (modal.style.display === 'block') {
+            closeSacredRemembranceModal();
+        }
+    }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
