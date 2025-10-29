@@ -348,6 +348,145 @@ a:hover {
     border-color: var(--color-forest);
 }
 
+/* Sacred Trinity Section */
+.sacred-trinity {
+    background: linear-gradient(135deg, var(--color-light-earth) 0%, #fefefe 50%, var(--color-light-earth) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.sacred-trinity::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(156, 175, 136, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.trinity-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.trinity-image-container {
+    text-align: center;
+}
+
+.trinity-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 8px 32px rgba(139, 69, 19, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.trinity-image:hover {
+    transform: scale(1.05);
+}
+
+.trinity-note {
+    margin-top: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--color-sage);
+    font-style: italic;
+}
+
+.trinity-description h3 {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    color: var(--color-earth);
+    font-family: var(--font-accent);
+    font-size: 1.8rem;
+}
+
+.trinity-circles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.trinity-circle {
+    background: white;
+    padding: var(--space-md);
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.trinity-circle:hover {
+    transform: translateY(-5px);
+}
+
+.trinity-circle.sky {
+    border-color: var(--color-sky);
+    background: linear-gradient(135deg, rgba(135, 206, 235, 0.1) 0%, white 100%);
+}
+
+.trinity-circle.land {
+    border-color: var(--color-sage);
+    background: linear-gradient(135deg, rgba(156, 175, 136, 0.1) 0%, white 100%);
+}
+
+.trinity-circle.body {
+    border-color: var(--color-sunset);
+    background: linear-gradient(135deg, rgba(205, 133, 63, 0.1) 0%, white 100%);
+}
+
+.trinity-circle h4 {
+    margin-bottom: var(--space-xs);
+    color: var(--color-deep-earth);
+    font-family: var(--font-accent);
+    font-size: 1.1rem;
+}
+
+.circuit-type {
+    font-weight: 500;
+    color: var(--color-earth);
+    margin-bottom: var(--space-sm);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.trinity-circle p:last-child {
+    color: var(--color-sage);
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.unified-current {
+    background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-forest) 100%);
+    color: white;
+    padding: var(--space-lg);
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(34, 139, 34, 0.3);
+}
+
+.unified-current h4 {
+    margin-bottom: var(--space-md);
+    font-family: var(--font-accent);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.unified-current p {
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.05rem;
+}
+
 /* Footer */
 .footer {
     background: var(--color-deep-earth);
@@ -694,5 +833,20 @@ a:hover {
     .btn-remembrance {
         width: 100%;
         margin-top: var(--space-sm);
+    }
+    
+    /* Trinity Section Responsive */
+    .trinity-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        text-align: center;
+    }
+    
+    .trinity-circles {
+        grid-template-columns: 1fr;
+    }
+    
+    .trinity-description h3 {
+        font-size: 1.5rem;
     }
 }
