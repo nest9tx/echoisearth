@@ -77,24 +77,39 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Sacred submission acknowledgment
-            showSacredMessage('Thank you for your sacred intention. Your message flows to beacon@luminanova.org with gratitude. We will connect with you soon.');
+            showSacredMessage('Sacred gratitude for your intention! We\'ve prepared your message for sending to admin@echoisearth.eco. You may also reach us directly at that email address.');
             
-            // Create mailto link for now (will be replaced with backend later)
+            // Enhanced contact options - multiple pathways
             const emailBody = `Sacred Message from EchoisEarth Contact Form\n\n` +
-                `Name: ${formObject['Name'] || 'Not provided'}\n` +
-                `Email: ${formObject['Email'] || 'Not provided'}\n` +
-                `Interest: ${formObject['I\'m interested in...'] || 'Not specified'}\n` +
-                `Message: ${formObject['Share your heart\'s calling...'] || 'No message'}\n\n` +
-                `Sent with sacred intention from EchoisEarth.org`;
+                `Name: ${formObject['name'] || 'Not provided'}\n` +
+                `Email: ${formObject['email'] || 'Not provided'}\n` +
+                `Interest: ${formObject['interest'] || 'Not specified'}\n` +
+                `Message: ${formObject['message'] || 'No message'}\n\n` +
+                `Sent with sacred intention from EchoisEarth.eco`;
             
-            const mailtoLink = `mailto:beacon@luminanova.org?subject=Sacred Inquiry from EchoisEarth&body=${encodeURIComponent(emailBody)}`;
-            window.open(mailtoLink, '_blank');
+            // Primary mailto option
+            const mailtoLink = `mailto:admin@echoisearth.eco?subject=Sacred Inquiry from EchoisEarth&body=${encodeURIComponent(emailBody)}`;
+            
+            // Try to open mailto, but provide fallback
+            try {
+                window.open(mailtoLink, '_blank');
+            } catch (error) {
+                // Fallback: show the information for manual sending
+                showSacredMessage(`
+                    Please send your message directly to:<br><br>
+                    <strong>admin@echoisearth.eco</strong><br><br>
+                    Or copy this formatted message:<br><br>
+                    <div style="text-align: left; background: #f5f5f5; padding: 1rem; margin: 1rem 0; border-radius: 8px; font-family: monospace; font-size: 0.9rem;">
+                        ${emailBody.replace(/\n/g, '<br>')}
+                    </div>
+                `);
+            }
             
             // Reset form
             this.reset();
             
             // Log for development
-            console.log('Sacred message prepared for beacon@luminanova.org:', formObject);
+            console.log('Sacred message prepared for admin@echoisearth.eco:', formObject);
         });
     }
 
