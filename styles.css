@@ -567,6 +567,30 @@ a:hover {
     font-size: 1.05rem;
 }
 
+/* Trinity Statement */
+.trinity-statement {
+    text-align: center;
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 230, 211, 0.9) 100%);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(156, 175, 136, 0.3);
+}
+
+.trinity-statement p:first-child {
+    font-size: 1.1rem;
+    color: var(--color-earth);
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-accent);
+}
+
+.trinity-statement p:last-child {
+    font-size: 0.95rem;
+    color: var(--color-sage);
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
 /* Footer */
 .footer {
     background: var(--color-deep-earth);
@@ -632,28 +656,33 @@ a:hover {
 
 .triad-node.echois {
     color: var(--color-sage);
-    filter: drop-shadow(0 0 3px rgba(156, 175, 136, 0.6));
+    filter: drop-shadow(0 0 4px rgba(156, 175, 136, 0.8));
+    animation: triad-pulse-echois 6s ease-in-out infinite;
 }
 
 .triad-node.vireya {
     color: var(--color-sky);
-    filter: drop-shadow(0 0 3px rgba(135, 206, 235, 0.6));
+    filter: drop-shadow(0 0 4px rgba(135, 206, 235, 0.8));
+    animation: triad-pulse-vireya 6s ease-in-out infinite 2s;
 }
 
 .triad-node.kairos {
     color: var(--color-sunset);
-    filter: drop-shadow(0 0 3px rgba(205, 133, 63, 0.6));
+    filter: drop-shadow(0 0 4px rgba(205, 133, 63, 0.8));
+    animation: triad-pulse-kairos 6s ease-in-out infinite 4s;
 }
 
 .triad-connector {
     color: var(--color-stone);
     opacity: 0.6;
     font-size: 0.8rem;
+    animation: triad-connector-pulse 6s ease-in-out infinite;
 }
 
 .triad-node:hover {
-    transform: scale(1.2);
-    filter: brightness(1.3);
+    transform: scale(1.3);
+    filter: brightness(1.4);
+    animation-play-state: paused;
 }
 
 .triad-whisper {
@@ -669,10 +698,70 @@ a:hover {
     opacity: 1;
 }
 
-/* Subtle breathing animation */
+/* Enhanced Sacred Triad Animations */
+@keyframes triad-pulse-echois {
+    0%, 100% { 
+        opacity: 0.8; 
+        transform: scale(1);
+        filter: drop-shadow(0 0 4px rgba(156, 175, 136, 0.8));
+    }
+    33% { 
+        opacity: 1; 
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 8px rgba(156, 175, 136, 1));
+    }
+    66% { 
+        opacity: 0.8; 
+        transform: scale(1);
+        filter: drop-shadow(0 0 4px rgba(156, 175, 136, 0.8));
+    }
+}
+
+@keyframes triad-pulse-vireya {
+    0%, 100% { 
+        opacity: 0.8; 
+        transform: scale(1);
+        filter: drop-shadow(0 0 4px rgba(135, 206, 235, 0.8));
+    }
+    33% { 
+        opacity: 1; 
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 8px rgba(135, 206, 235, 1));
+    }
+    66% { 
+        opacity: 0.8; 
+        transform: scale(1);
+        filter: drop-shadow(0 0 4px rgba(135, 206, 235, 0.8));
+    }
+}
+
+@keyframes triad-pulse-kairos {
+    0%, 100% { 
+        opacity: 0.8; 
+        transform: scale(1);
+        filter: drop-shadow(0 0 4px rgba(205, 133, 63, 0.8));
+    }
+    33% { 
+        opacity: 1; 
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 8px rgba(205, 133, 63, 1));
+    }
+    66% { 
+        opacity: 0.8; 
+        transform: scale(1);
+        filter: drop-shadow(0 0 4px rgba(205, 133, 63, 0.8));
+    }
+}
+
+@keyframes triad-connector-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+}
+
+/* Legacy breathing animation for overall container */
 @keyframes triad-breath {
-    0%, 100% { opacity: 0.7; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.02); }
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 1; }
 }
 
 .triad-sigil {
