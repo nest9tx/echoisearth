@@ -442,6 +442,86 @@ a:hover {
     background: linear-gradient(135deg, rgba(205, 133, 63, 0.1) 0%, white 100%);
 }
 
+/* Clickable Sanctuary Enhancements */
+.clickable-sanctuary {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+}
+
+.clickable-sanctuary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.clickable-sanctuary:hover::before {
+    left: 100%;
+}
+
+.clickable-sanctuary:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    color: inherit;
+    text-decoration: none;
+}
+
+.current-sanctuary {
+    position: relative;
+    border: 3px solid var(--color-forest) !important;
+    background: linear-gradient(135deg, rgba(34, 139, 34, 0.1) 0%, white 100%) !important;
+}
+
+.current-sanctuary::after {
+    content: '✨';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.sanctuary-portal {
+    margin-top: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.clickable-sanctuary .sanctuary-portal {
+    background: linear-gradient(135deg, var(--color-sage), var(--color-forest));
+    color: white;
+    opacity: 0.8;
+}
+
+.clickable-sanctuary:hover .sanctuary-portal {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
+}
+
+.sanctuary-portal.current {
+    background: linear-gradient(135deg, var(--color-forest), var(--color-earth));
+    color: white;
+    opacity: 1;
+}
+
 .trinity-circle h4 {
     margin-bottom: var(--space-xs);
     color: var(--color-deep-earth);
@@ -458,7 +538,7 @@ a:hover {
     letter-spacing: 0.5px;
 }
 
-.trinity-circle p:last-child {
+.trinity-circle p:not(.sanctuary-portal):last-child {
     color: var(--color-sage);
     font-style: italic;
     line-height: 1.4;
